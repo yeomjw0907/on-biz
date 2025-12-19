@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, ArrowRight } from 'lucide-react';
 import { NavItem } from '../types';
@@ -22,7 +23,6 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
@@ -37,7 +37,6 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
-          {/* Logo */}
           <div className="flex-shrink-0 flex items-center cursor-pointer relative z-50">
             <Link to="/" className="flex items-center gap-3 group">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xl shadow-lg transition-all duration-300 ${isScrolled ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 group-hover:scale-105'}`}>
@@ -45,18 +44,18 @@ export const Navbar: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className={`font-bold text-xl tracking-tight leading-none transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-                  온경영자문
+                  온비즈
                 </span>
                 <span className={`text-[10px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
-                  Consulting
+                  OnBiz Consulting
                 </span>
               </div>
             </Link>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            <div className="flex gap-8">
+          {/* Centered Navigation Items */}
+          <div className="hidden md:flex flex-grow justify-center">
+            <div className="flex gap-12">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -74,7 +73,9 @@ export const Navbar: React.FC = () => {
                 </Link>
               ))}
             </div>
-            
+          </div>
+
+          <div className="hidden md:flex items-center gap-8">
             <Link
               to="/contact"
               className={`group flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 ${
@@ -83,12 +84,11 @@ export const Navbar: React.FC = () => {
                   : 'bg-white text-slate-900 hover:bg-amber-50'
               }`}
             >
-              상담 문의
+              사전검토 의뢰
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center relative z-50">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -100,7 +100,6 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <div className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col h-full pt-24 px-6 pb-10">
           <div className="space-y-2">
@@ -124,11 +123,8 @@ export const Navbar: React.FC = () => {
               to="/contact"
               className="block w-full text-center px-5 py-5 bg-slate-900 text-white rounded-xl font-bold shadow-lg hover:bg-slate-800 transition-colors"
             >
-              상담 문의하기
+              사전검토 의뢰하기
             </Link>
-            <p className="text-center text-slate-400 text-sm">
-              평일 09:00 - 18:00
-            </p>
           </div>
         </div>
       </div>

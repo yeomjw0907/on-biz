@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ChevronRight, Calendar, User, Eye, Newspaper, ArrowRight, Filter } from 'lucide-react';
-import { boardPosts } from '../data';
+import { Search, ArrowRight, Newspaper, User, Eye, Calendar, PenSquare } from 'lucide-react';
+import { useBoard } from '../context/BoardContext';
 
 export const Board: React.FC = () => {
+  const { posts } = useBoard();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('전체');
 
   // Extract unique categories
-  const categories = ['전체', ...new Set(boardPosts.map(post => post.category))];
+  const categories = ['전체', ...new Set(posts.map(post => post.category))];
   
-  const filteredPosts = boardPosts.filter(post => {
+  const filteredPosts = posts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           post.category.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = activeCategory === '전체' || post.category === activeCategory;
@@ -48,21 +49,32 @@ export const Board: React.FC = () => {
                 ))}
             </div>
 
-            {/* Search Bar */}
-            <div className="bg-white rounded-2xl p-4 shadow-lg border border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div className="flex gap-2 pl-2">
-                    <span className="text-slate-500 font-bold text-sm">Total <span className="text-amber-600">{filteredPosts.length}</span> Posts</span>
+            {/* Search Bar & Write Button */}
+            <div className="flex flex-col sm:flex-row gap-4">
+                <div className="bg-white rounded-2xl p-4 shadow-lg border border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 flex-grow">
+                    <div className="flex gap-2 pl-2">
+                        <span className="text-slate-500 font-bold text-sm">Total <span className="text-amber-600">{filteredPosts.length}</span> Posts</span>
+                    </div>
+                    <div className="relative w-full sm:w-80">
+                        <input 
+                            type="text" 
+                            placeholder="검색어를 입력하세요..." 
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
+                        />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                    </div>
                 </div>
-                <div className="relative w-full sm:w-80">
-                    <input 
-                        type="text" 
-                        placeholder="검색어를 입력하세요..." 
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm font-medium"
-                    />
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
-                </div>
+                
+                <Link 
+                    to="/board/write"
+                    className="bg-slate-900 hover:bg-slate-800 text-white rounded-2xl px-6 py-4 shadow-lg flex items-center justify-center gap-2 font-bold transition-all hover:-translate-y-1 hover:shadow-xl shrink-0"
+                >
+                    <PenSquare size={20} />
+                    <span className="hidden sm:inline">새 글 작성</span>
+                    <span className="sm:hidden">글쓰기</span>
+                </Link>
             </div>
         </div>
 
