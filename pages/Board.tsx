@@ -23,8 +23,8 @@ export const Board: React.FC = () => {
       {/* Header */}
       <div className="bg-slate-900 pt-32 pb-24 px-4 text-center relative overflow-hidden">
          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_50%)]"></div>
-        <h1 className="text-3xl md:text-5xl font-black text-white mb-4 relative z-10">인사이트 & 공지사항</h1>
-        <p className="text-slate-400 relative z-10">온경영자문의 새로운 소식과 유용한 경영 정보를 확인하세요.</p>
+        <h1 className="text-3xl md:text-5xl font-black text-white mb-4 relative z-10">게시판</h1>
+        <p className="text-slate-400 relative z-10">온비즈의 새로운 소식과 유용한 경영 정보를 확인하세요.</p>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-20">

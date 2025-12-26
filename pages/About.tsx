@@ -26,50 +26,20 @@ export const About: React.FC = () => {
         </div>
       </div>
 
-      {/* CEO Profile Section */}
+      {/* Company Philosophy */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 -mt-20 relative z-20">
-        <div className="bg-white rounded-3xl p-8 md:p-16 shadow-2xl flex flex-col md:flex-row gap-16 items-center border border-slate-100">
-          <div className="md:w-5/12 relative">
-             <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-amber-500 -translate-x-4 -translate-y-4 rounded-tl-3xl opacity-50"></div>
-             <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-slate-900 translate-x-4 translate-y-4 rounded-br-3xl opacity-50"></div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] bg-slate-200 flex items-center justify-center transition-all duration-700 hover:bg-slate-300">
-              <User size={120} className="text-slate-400 opacity-50" />
-            </div>
+        <div className="bg-white rounded-3xl p-8 md:p-16 shadow-2xl border border-slate-100">
+          <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase mb-4 text-xs text-center">Our Mission</h2>
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-black text-slate-950 mb-6 tracking-tighter">(주)온비즈</h3>
+            <div className="w-12 h-1.5 bg-amber-500 rounded-full mx-auto"></div>
           </div>
-          <div className="md:w-7/12">
-            <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase mb-4 text-xs">Leadership</h2>
-            <div className="mb-10">
-              <h3 className="text-4xl md:text-5xl font-black text-slate-950 mb-2 tracking-tighter">박희락 <span className="text-2xl font-medium text-slate-400">대표이사</span></h3>
-              <div className="w-12 h-1.5 bg-amber-500 rounded-full"></div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
-              {[
-                '기술신용평가사',
-                'ISO 선임 심사원',
-                '월드비지니스싱크탱크 초대회장',
-                '한국식품산업클러스터진흥원 자문위원',
-                '소비자진흥원 이사',
-                '소상공인연구원 자문위원',
-                '고양축구협회 부회장',
-                '세계한인무역협회 회원',
-                '하나은행 출신'
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 group">
-                  <div className="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
-                    <CheckCircle2 size={14} strokeWidth={3} />
-                  </div>
-                  <span className="text-slate-700 text-sm md:text-base font-semibold tracking-tight">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-14 pt-8 border-t border-slate-50">
-               <p className="text-slate-500 text-sm leading-relaxed font-light mb-6">
-                 "온비즈는 단순한 지식 전달을 넘어, 기업의 상황에 맞는 최적의 실행 방안을 <br className="hidden lg:block"/>함께 고민하고 만들어가는 진정한 비즈니스 파트너가 되겠습니다."
-               </p>
-               <span className="font-bold text-slate-950 text-lg">온비즈 임직원 일동</span>
-            </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <p className="text-slate-500 text-lg leading-relaxed font-light mb-8 text-center">
+              "온비즈는 단순한 지식 전달을 넘어, 기업의 상황에 맞는 최적의 실행 방안을 <br className="hidden lg:block"/>함께 고민하고 만들어가는 진정한 비즈니스 파트너가 되겠습니다."
+            </p>
+            <p className="font-bold text-slate-950 text-xl text-center">온비즈 임직원 일동</p>
           </div>
         </div>
       </div>

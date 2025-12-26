@@ -7,59 +7,59 @@ import { Link } from 'react-router-dom';
 const services: (ServiceItem & { color: string })[] = [
   {
     id: 'ip',
-    title: '기술 / 특허 IP',
+    title: '기술 IP 컨설팅',
     description: '기업의 독보적인 기술 가치를 평가받고 지식재산권을 확보하여 무형 자산의 가치를 극대화합니다.',
     icon: Lightbulb,
     color: 'bg-slate-800',
-    details: ['기술 가치 평가(TCB)', '특허/상표권 확보', 'IP 포트폴리오 구축', '기술 사업화 전략']
+    details: ['기술평가', '기술신용보증', '상표권 등록', '지식재산권', '기술가치평가', 'IP 전략']
   },
   {
     id: 'funding',
     title: '자금 컨설팅',
-    description: '시설 및 운전 자금 등 기업 경영에 필수적인 자금을 최적의 조건으로 조달합니다.',
+    description: '신용보증기금, 기술보증기금, 정책자금 등 최적의 조건으로 자금을 조달합니다.',
     icon: Coins,
     color: 'bg-slate-800',
-    details: ['정책자금 조달 전략', '시설/운전 자금', '이차보전 지원사업', '금융 네트워킹']
+    details: ['신용/기술보증기금', '지역신용보증재단', '중진공/소진공', '초창패/예창패', '사옥/공장취득', '시설/운전자금', '정책자금', '이차보전', 'C1자금', '유동화']
   },
   {
     id: 'management',
     title: '경영 컨설팅',
-    description: '지속 가능한 성장을 위한 재무 구조 개선 및 가업 승계 등 전방위적 자문을 제공합니다.',
+    description: '기업신용등급관리, 재무구조개선, 가업승계, IPO, M&A 등 전방위적 경영 자문을 제공합니다.',
     icon: Briefcase,
-    color: 'bg-amber-600', // CENTER HIGHLIGHT
-    details: ['법인전환/가업승계', '재무구조 개선', '정관 정비/임원보수', 'M&A 전략 자문']
+    color: 'bg-amber-600',
+    details: ['기업신용등급관리', '결산보고서', '정관작성', '가수금/가지급금 해결', '재무비율개선', '세무조사대응', '중대재해처벌대응', '주총컨서류', '주식평가', '가업승계', '엑싯전략', '홀딩스설립', 'IPO', 'M&A']
   },
   {
     id: 'government',
-    title: '정부지원 사업',
-    description: '정부의 다양한 지원 사업을 분석하여 기업에 최적화된 바우처와 지원금을 매칭합니다.',
+    title: '정부지원 컨설팅',
+    description: '고용지원금, 정부지원사업, 수출/혁신바우처 등 각종 지자체 바우처 지원사업을 매칭합니다.',
     icon: FileText,
     color: 'bg-slate-800',
-    details: ['수출/혁신 바우처', '고용 지원금 신청', '사업계획서 컨설팅', '제조혁신 지원']
+    details: ['고용지원금', '년간 일정표', '정부지원사업', '수출바우처', '혁신바우처', '지자체바우처', '사업계획서', '마케팅/인테리어 지원']
   },
   {
     id: 'certification',
-    title: '기업/공인 인증',
-    description: '기업의 기술력과 신뢰도를 공인받아 대외 경쟁력 확보 및 세제 혜택을 획득합니다.',
+    title: '기업인증 컨설팅',
+    description: '벤처, 이노비즈, 연구소, ISO 등 기업 신뢰도를 높이는 각종 공인 인증을 취득 지원합니다.',
     icon: Shield,
     color: 'bg-slate-800',
-    details: ['벤처/이노/메인비즈', 'ISO 심사 인증', '연구소/전담부서 설립', '해외 규격 인증']
+    details: ['연구소', 'ISO', '벤처/이노비즈', '메인비즈', '여성기업', '뿌리/소부장기업', '공장등록', '직접생산', '병역특례', '나라장터', '조달인증', 'ESG', '녹색인증', 'HACCP']
   },
   {
     id: 'global',
-    title: '해외진출/수출',
-    description: '글로벌 시장 진입을 위한 현지화 전략부터 바이어 매칭까지 성공을 지원합니다.',
+    title: '해외진출 / 판로개척',
+    description: '코트라 지원부터 해외 바이어 매칭, 수출박람회까지 글로벌 시장 진출을 전방위 지원합니다.',
     icon: Globe,
     color: 'bg-slate-800',
-    details: ['글로벌 판로 개척', '해외 바이어 매칭', '수출 행정 지원', '해외 전시회 참가']
+    details: ['코트라 지원', '한인무역협회', '해외박람회', '로컬바이어 컨택', '수출박람회', '나라장터', 'SNS마케팅', '유튜브 관리']
   },
   {
     id: 'marketing',
-    title: '마케팅/조달',
-    description: '온라인 통합 마케팅과 공공 조달 시장 진입을 통해 안정적인 매출을 확보합니다.',
+    title: '마케팅 / 조달 컨설팅',
+    description: '홈페이지, IR자료, 영상제작부터 나라장터 등록, SNS계정 관리까지 마케팅을 지원합니다.',
     icon: LayoutDashboard,
     color: 'bg-slate-800',
-    details: ['나라장터/MAS 등록', 'SNS 채널 브랜딩', '커머스 운영 대행', '홍보 콘텐츠 제작']
+    details: ['홈페이지 제작', 'IR자료 제작', '영상제작', '바우처활용', '나라장터 등록', 'MAS 등록', 'SNS계정관리', '커머스 관리', '해외바이어 매칭', '박람회 지원']
   }
 ];
 
@@ -109,19 +109,19 @@ export const Services: React.FC = () => {
           </div>
 
           {/* Honeycomb Grid Container with wider dimensions */}
-          <div className="relative flex justify-center items-center min-h-[700px] md:min-h-[900px]">
+          <div className="relative flex justify-center items-center min-h-[800px] md:min-h-[1000px]">
             {/* Desktop Honeycomb Layout with increased gutter */}
-            <div className="hidden md:block relative w-[1000px] h-[750px]">
+            <div className="hidden md:block relative w-[1100px] h-[850px]">
               {services.map((s, idx) => {
                 // Optimized positions for readability (X and Y gap increased)
                 const positions = [
-                  { top: '22%', left: '32%' },    // 1: Top Left
-                  { top: '22%', left: '68%' },    // 2: Top Right
-                  { top: '50%', left: '16%' },    // 3: Mid Left
+                  { top: '20%', left: '32%' },    // 1: Top Left
+                  { top: '20%', left: '68%' },    // 2: Top Right
+                  { top: '50%', left: '15%' },    // 3: Mid Left
                   { top: '50%', left: '50%' },    // 4: CENTER (Management)
-                  { top: '50%', left: '84%' },    // 5: Mid Right
-                  { top: '78%', left: '32%' },    // 6: Bottom Left
-                  { top: '78%', left: '68%' }     // 7: Bottom Right
+                  { top: '50%', left: '85%' },    // 5: Mid Right
+                  { top: '80%', left: '32%' },    // 6: Bottom Left
+                  { top: '80%', left: '68%' }     // 7: Bottom Right
                 ];
                 
                 // Mapping: ip(0), funding(1), management(2), gov(3), cert(4), global(5), mkt(6)
@@ -132,33 +132,33 @@ export const Services: React.FC = () => {
                 return (
                   <div 
                     key={s.id}
-                    className="absolute w-[260px] h-[300px] transition-all duration-700 hover:z-40 group"
+                    className="absolute w-[290px] h-[330px] transition-all duration-700 hover:z-40 group"
                     style={{ top: pos.top, left: pos.left, transform: 'translate(-50%, -50%)' }}
                   >
                     {/* Outer glow effect */}
                     <div className="absolute inset-2 bg-amber-500/0 group-hover:bg-amber-500/10 blur-2xl transition-all duration-500 rounded-full"></div>
                     
-                    <div className={`w-full h-full ${s.id === 'management' ? 'bg-amber-600' : 'bg-slate-900'} clip-hexagon flex flex-col items-center justify-center p-10 text-center shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:bg-amber-500 border border-white/5`}>
-                      <s.icon size={44} className={`${s.id === 'management' ? 'text-white' : 'text-amber-500'} mb-6 group-hover:text-white transition-colors duration-300`} strokeWidth={1.2} />
-                      <h4 className="text-white font-black text-lg mb-4 tracking-tight leading-tight">{s.title}</h4>
-                      <div className="w-8 h-px bg-white/20 mb-4 group-hover:bg-white/40 transition-colors"></div>
-                      <p className="text-white/50 text-[10px] leading-relaxed font-light group-hover:text-white/90 transition-colors line-clamp-2 px-2">{s.description}</p>
+                    <div className={`w-full h-full ${s.id === 'management' ? 'bg-amber-600' : 'bg-slate-900'} clip-hexagon flex flex-col items-center justify-center p-12 text-center shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:bg-amber-500 border border-white/5`}>
+                      <s.icon size={48} className={`${s.id === 'management' ? 'text-white' : 'text-amber-500'} mb-6 group-hover:text-white transition-colors duration-300`} strokeWidth={1.2} />
+                      <h4 className="text-white font-black text-xl mb-4 tracking-tight leading-tight">{s.title}</h4>
+                      <div className="w-10 h-px bg-white/30 mb-5 group-hover:bg-white/50 transition-colors"></div>
+                      <p className="text-white/60 text-xs leading-relaxed font-light group-hover:text-white/90 transition-colors line-clamp-3 px-1">{s.description}</p>
                       
                       {/* Detailed Hover Overlay */}
-                      <div className="absolute inset-0 bg-slate-950/95 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center p-8 transition-all duration-500 clip-hexagon">
-                         <div className="mb-4 p-2 bg-amber-500 rounded-lg text-slate-950">
-                            <s.icon size={20} strokeWidth={2} />
+                      <div className="absolute inset-0 bg-slate-950/95 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center p-10 transition-all duration-500 clip-hexagon">
+                         <div className="mb-5 p-3 bg-amber-500 rounded-lg text-slate-950">
+                            <s.icon size={24} strokeWidth={2} />
                          </div>
                          <h4 className="text-white font-black mb-6 text-sm tracking-widest uppercase">{s.title} 상세</h4>
-                         <ul className="text-white/80 text-[10px] space-y-3 text-left w-full max-w-[160px]">
-                           {s.details.map((d, i) => (
-                             <li key={i} className="flex items-center gap-2 font-medium">
-                                <span className="w-1 h-1 bg-amber-500 rounded-full shrink-0"></span>
-                                <span className="line-clamp-1">{d}</span>
+                         <ul className="text-white/80 text-[11px] space-y-2.5 text-left w-full max-w-[180px]">
+                           {s.details.slice(0, 6).map((d, i) => (
+                             <li key={i} className="flex items-start gap-2 font-medium">
+                                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0 mt-1.5"></span>
+                                <span className="line-clamp-1 leading-tight">{d}</span>
                              </li>
                            ))}
                          </ul>
-                         <Link to="/contact" className="mt-8 text-[10px] font-black text-amber-500 hover:text-white transition-colors border-b border-amber-500/30 pb-1">사전 검토 신청</Link>
+                         <Link to="/contact" className="mt-8 text-xs font-black text-amber-500 hover:text-white transition-colors border-b border-amber-500/30 pb-1">사전 검토 신청</Link>
                       </div>
                     </div>
                   </div>
