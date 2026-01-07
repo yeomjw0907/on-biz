@@ -78,13 +78,11 @@ export const Home: React.FC = () => {
             </div>
             
             <h1 className="flex flex-col gap-4 mb-10">
-              <div className="animate-fade-up delay-100 flex items-center justify-center gap-4">
-                <span className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tighter uppercase">OnBiz</span>
-                <span className="text-white/40 font-thin text-3xl md:text-5xl lg:text-6xl tracking-widest uppercase">the best</span>
+              <div className="animate-fade-up delay-100">
+                <span className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tighter uppercase">ON THE BEST</span>
               </div>
-              <div className="animate-fade-up delay-200 flex items-center justify-center gap-4">
-                <span className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tighter uppercase">OnBiz</span>
-                <span className="text-white/40 font-thin text-3xl md:text-5xl lg:text-6xl tracking-widest uppercase">the special</span>
+              <div className="animate-fade-up delay-200">
+                <span className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tighter uppercase">ON THE SPECIAL</span>
               </div>
             </h1>
             
@@ -94,19 +92,24 @@ export const Home: React.FC = () => {
 
             <div className="animate-fade-up delay-300 mb-12">
               <p className="text-slate-100 text-base md:text-xl font-medium tracking-wide leading-relaxed max-w-2xl mx-auto">
-                창업부터 IPO, EXIT 기업성장의 모든단계에 꼭 필요한<br/>
-                전략적 맞춤 솔루션과 전문 컨설팅을 제공합니다.
+                창업부터 IPO, EXIT 까지<br/>
+                기업성장의 모든 단계에 꼭 필요한 전략적 맞춤 솔루션과 전문 컨설팅을 제공합니다.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-500">
-              <Link 
-                to="/services" 
+              <button 
+                onClick={() => {
+                  const servicesSection = document.getElementById('services-section');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
                 className="group px-12 py-4 bg-white text-slate-950 font-bold text-sm tracking-widest uppercase transition-all hover:bg-amber-500 hover:text-slate-950 flex items-center gap-3"
               >
-                Services
+                서비스 항목
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              </button>
               
               <Link 
                 to="/contact" 
@@ -120,9 +123,9 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Services Preview Section - Now 7 items */}
-      <section className="py-32 bg-white">
+      <section id="services-section" className="py-32 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-24 border-b border-slate-100 pb-12 gap-8">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-24 border-b border-slate-200 pb-12 gap-8">
             <div className="max-w-xl">
               <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Core Portfolio</h2>
               <h3 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tighter">
@@ -134,23 +137,63 @@ export const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-100 border border-slate-100 shadow-2xl">
-            {portfolioItems.map((item, index) => (
-              <div key={index} className={`group bg-white p-10 md:p-12 transition-all duration-300 hover:bg-slate-950 hover:text-white ${index === 6 ? 'lg:col-span-2' : ''}`}>
-                <div className="text-amber-600 mb-8 transition-colors group-hover:text-amber-500">
-                  <item.icon size={40} strokeWidth={1} />
+          {/* Hexagonal Grid Layout */}
+          <div className="relative flex justify-center items-center min-h-[800px] md:min-h-[900px]">
+            {/* Desktop Hexagonal Layout */}
+            <div className="hidden md:block relative w-[1000px] h-[800px]">
+              {portfolioItems.map((item, idx) => {
+                const positions = [
+                  { top: '15%', left: '30%' },
+                  { top: '15%', left: '70%' },
+                  { top: '45%', left: '10%' },
+                  { top: '45%', left: '50%' },
+                  { top: '45%', left: '90%' },
+                  { top: '75%', left: '30%' },
+                  { top: '75%', left: '70%' }
+                ];
+                const pos = positions[idx];
+
+                return (
+                  <div 
+                    key={idx}
+                    className="absolute w-[240px] h-[280px] transition-all duration-700 hover:z-40 group"
+                    style={{ top: pos.top, left: pos.left, transform: 'translate(-50%, -50%)' }}
+                  >
+                    <div className="absolute inset-2 bg-amber-500/0 group-hover:bg-amber-500/10 blur-2xl transition-all duration-500 rounded-full"></div>
+                    
+                    <div className="w-full h-full bg-slate-900 clip-hexagon flex flex-col items-center justify-center p-8 text-center shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:bg-amber-500 border border-white/5">
+                      <item.icon size={40} className="text-amber-500 mb-5 group-hover:text-white transition-colors duration-300" strokeWidth={1.2} />
+                      <h4 className="text-white font-black text-lg mb-3 tracking-tight leading-tight">{item.title}</h4>
+                      <div className="w-8 h-px bg-white/30 mb-4 group-hover:bg-white/50 transition-colors"></div>
+                      <p className="text-white/60 text-xs leading-relaxed font-light group-hover:text-white/90 transition-colors line-clamp-3 px-2">{item.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Mobile Grid Layout */}
+            <div className="md:hidden grid grid-cols-1 gap-6 w-full px-4">
+              {portfolioItems.map((item, idx) => (
+                <div key={idx} className="group p-8 rounded-3xl shadow-xl border border-slate-200 flex flex-col gap-4 transition-all bg-white hover:bg-amber-500 hover:text-white">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-900 text-amber-500 group-hover:bg-white group-hover:text-amber-500">
+                    <item.icon size={28} />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-black tracking-tight mb-3">{item.title}</h4>
+                    <p className="text-sm font-light leading-relaxed text-slate-500 group-hover:text-white/90">{item.desc}</p>
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold mb-4 tracking-tight">{item.title}</h4>
-                <p className="text-slate-500 group-hover:text-slate-400 mb-10 leading-relaxed text-sm font-light h-12">
-                  {item.desc}
-                </p>
-                <Link to="/services" className="inline-flex items-center gap-2 font-black text-[10px] uppercase tracking-[0.2em] border-b border-current pb-1 transition-all">
-                  Read More <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
+
+        <style dangerouslySetInnerHTML={{ __html: `
+          .clip-hexagon {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+          }
+        `}} />
       </section>
 
       {/* Philosophy Section */}

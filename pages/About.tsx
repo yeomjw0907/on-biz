@@ -44,12 +44,64 @@ export const About: React.FC = () => {
         </div>
       </div>
 
+      {/* CEO Highlight Section - PC Only */}
+      <section className="hidden lg:block py-24 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-12 gap-12 items-center">
+            <div className="col-span-5">
+              <div className="relative overflow-hidden rounded-3xl aspect-[3/4] shadow-2xl">
+                {teamMembers[0].image ? (
+                  <img 
+                    src={teamMembers[0].image} 
+                    alt={teamMembers[0].name} 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-slate-200">
+                    <User size={128} className="text-slate-300" />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+              </div>
+            </div>
+            
+            <div className="col-span-7">
+              <div className="mb-6">
+                <span className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px]">CEO</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">
+                {teamMembers[0].name}
+              </h2>
+              <p className="text-amber-600 font-bold text-lg uppercase tracking-widest mb-8">
+                {teamMembers[0].position}
+              </p>
+              
+              <div className="mb-8">
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {teamMembers[0].expertise.map((skill, idx) => (
+                    <span key={idx} className="px-4 py-2 bg-slate-50 text-slate-700 text-sm rounded-lg font-bold border border-slate-200">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <p className="text-slate-600 text-lg leading-relaxed font-light mb-8">
+                {teamMembers[0].description}
+              </p>
+              
+              <div className="w-16 h-1 bg-amber-500"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Team Section - Updated with full list */}
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Our Professionals</h2>
-            <h3 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">분야별 전문가 위원회</h3>
+            <h3 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">구성원</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

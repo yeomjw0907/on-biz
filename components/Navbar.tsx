@@ -44,10 +44,10 @@ export const Navbar: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className={`font-bold text-xl tracking-tight leading-none transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-                  온비즈
+                  (주)온비즈
                 </span>
                 <span className={`text-[10px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
-                  OnBiz Consulting
+                  OnBiz Consulting & Solutions
                 </span>
               </div>
             </Link>

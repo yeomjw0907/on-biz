@@ -11,7 +11,7 @@ const services: (ServiceItem & { color: string })[] = [
     description: '기업의 독보적인 기술 가치를 평가받고 지식재산권을 확보하여 무형 자산의 가치를 극대화합니다.',
     icon: Lightbulb,
     color: 'bg-slate-800',
-    details: ['기술평가', '기술신용보증', '상표권 등록', '지식재산권', '기술가치평가', 'IP 전략']
+    details: ['기술평가', '기술신용보증', '상표권 등록', '지식재산권', '기술가치평가', 'IP 전략', 'FSSC 22000', 'FCE', 'SID', '특허 출원', '디자인권', '실용신안', '영업비밀 보호']
   },
   {
     id: 'funding',
@@ -51,7 +51,7 @@ const services: (ServiceItem & { color: string })[] = [
     description: '코트라 지원부터 해외 바이어 매칭, 수출박람회까지 글로벌 시장 진출을 전방위 지원합니다.',
     icon: Globe,
     color: 'bg-slate-800',
-    details: ['코트라 지원', '한인무역협회', '해외박람회', '로컬바이어 컨택', '수출박람회', '나라장터', 'SNS마케팅', '유튜브 관리']
+    details: ['코트라 지원', '한인무역협회', '해외박람회', '로컬바이어 컨택', '수출박람회', '나라장터', 'SNS마케팅', '유튜브 관리', 'MSDS', 'CO (원산지증명서)', 'FTA 활용', '수출입 통관', '해외 인증', '해외 법인 설립', '글로벌 마케팅']
   },
   {
     id: 'marketing',
@@ -198,7 +198,7 @@ export const Services: React.FC = () => {
         `}} />
       </section>
 
-      {/* Annual Care Schedule */}
+      {/* Annual Care Schedule - Timeline */}
       <section className="py-32 bg-white border-y border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
@@ -206,17 +206,48 @@ export const Services: React.FC = () => {
               <h3 className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter uppercase">1년 케어 일정</h3>
               <p className="text-slate-500 mt-6 font-light">분기별 핵심 경영 이슈를 선제적으로 진단하고 밀착 케어합니다.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            {/* Timeline - Desktop */}
+            <div className="hidden md:block relative">
+              {/* Horizontal Line */}
+              <div className="absolute top-20 left-0 right-0 h-0.5 bg-slate-200"></div>
+              
+              <div className="relative flex justify-between items-start">
+                {annualSchedule.map((quarter, idx) => (
+                  <div key={idx} className="flex-1 relative group">
+                    {/* Timeline Dot */}
+                    <div className="absolute top-16 left-1/2 -translate-x-1/2 w-12 h-12 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-xs font-black text-amber-600">{quarter.quarter}</span>
+                    </div>
+                    
+                    {/* Content Card */}
+                    <div className="mt-32 bg-slate-50 rounded-2xl p-6 shadow-sm border border-slate-100 group-hover:shadow-xl group-hover:border-amber-200 transition-all duration-300">
+                      <div className="space-y-3">
+                        {quarter.items.map((item, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-2"></div>
+                            <span className="text-sm font-semibold text-slate-700 leading-relaxed">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Grid Layout */}
+            <div className="md:hidden grid grid-cols-1 gap-8">
               {annualSchedule.map((quarter, idx) => (
-                <div key={idx} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col relative group hover:-translate-y-2 transition-transform duration-500">
-                  <div className="w-16 h-16 bg-blue-800 text-white rounded-full flex items-center justify-center font-black text-2xl absolute -top-4 -left-4 shadow-lg ring-8 ring-white">
+                <div key={idx} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col relative">
+                  <div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center font-black text-xl mb-6 shadow-lg">
                     {quarter.quarter}
                   </div>
-                  <div className="mt-8 space-y-4">
+                  <div className="space-y-4">
                     {quarter.items.map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
-                         <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-amber-500 shrink-0"></div>
-                         <span className="text-sm font-semibold text-slate-700">{item}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></div>
+                        <span className="text-sm font-semibold text-slate-700">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -226,13 +257,46 @@ export const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - Timeline */}
       <section className="py-40 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Workflow</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-slate-950 mb-20 tracking-tighter uppercase">Service Process</h3>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-12 relative">
-              <div className="hidden md:block absolute top-10 left-0 w-full h-px bg-slate-200 -z-10"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-20">
+              <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Workflow</h2>
+              <h3 className="text-4xl md:text-5xl font-black text-slate-950 mb-4 tracking-tighter uppercase">Service Process</h3>
+              <p className="text-slate-500 font-light">단계별 체계적인 프로세스로 최적의 결과를 도출합니다.</p>
+            </div>
+            
+            {/* Desktop Timeline */}
+            <div className="hidden md:block relative">
+              {/* Connecting Line */}
+              <div className="absolute top-16 left-0 right-0 h-0.5 bg-slate-200"></div>
+              
+              <div className="relative flex justify-between items-start">
+                {[
+                  { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
+                  { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
+                  { step: '03', title: '자문 계약', desc: '솔루션 제시 및 과업 확정' },
+                  { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
+                  { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex-1 relative group">
+                    {/* Step Circle */}
+                    <div className="absolute top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 group-hover:bg-amber-500 transition-all duration-300">
+                      <span className="text-sm font-black text-amber-600 group-hover:text-white">{item.step}</span>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="mt-24 text-center">
+                      <h4 className="font-bold text-slate-900 mb-2 text-sm uppercase tracking-wide group-hover:text-amber-600 transition-colors">{item.title}</h4>
+                      <p className="text-xs text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Vertical Timeline */}
+            <div className="md:hidden space-y-8">
               {[
                 { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
                 { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
@@ -240,12 +304,22 @@ export const Services: React.FC = () => {
                 { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
                 { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
               ].map((item, idx) => (
-                <div key={idx} className="group">
-                  <div className="w-20 h-20 bg-white border border-slate-200 rounded flex items-center justify-center mx-auto mb-8 transition-all group-hover:bg-slate-950 group-hover:text-amber-500">
-                     <span className="text-2xl font-black">{item.step}</span>
+                <div key={idx} className="relative flex gap-6">
+                  {/* Vertical Line */}
+                  {idx < 4 && (
+                    <div className="absolute left-6 top-16 w-0.5 h-full bg-slate-200"></div>
+                  )}
+                  
+                  {/* Step Circle */}
+                  <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 shrink-0">
+                    <span className="text-sm font-black text-white">{item.step}</span>
                   </div>
-                  <h4 className="font-bold text-slate-900 mb-2 text-sm uppercase tracking-wide">{item.title}</h4>
-                  <p className="text-[11px] text-slate-400 leading-relaxed font-bold uppercase tracking-widest">{item.desc}</p>
+                  
+                  {/* Content */}
+                  <div className="flex-1 pt-2">
+                    <h4 className="font-bold text-slate-900 mb-2 text-base">{item.title}</h4>
+                    <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

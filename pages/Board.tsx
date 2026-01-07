@@ -8,8 +8,8 @@ export const Board: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('전체');
 
-  // Extract unique categories
-  const categories = ['전체', ...new Set(posts.map(post => post.category))];
+  // Fixed categories: 전체, 공고, 온비즈 소식
+  const categories = ['전체', '공고', '온비즈 소식'];
   
   const filteredPosts = posts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
