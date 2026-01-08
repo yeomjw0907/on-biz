@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Fax, Mail } from 'lucide-react';
+import { MapPin, Printer, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
                 <span className="leading-relaxed">경기도 화성시 동탄중심상가2길 26-15,<br/>8층 802-433B호(반송동, 지성프라자)</span>
               </li>
               <li className="flex items-center gap-4">
-                <Fax size={16} className="text-amber-500 shrink-0" />
+                <Printer size={16} className="text-amber-500 shrink-0" />
                 <span className="text-white">0504 244 8022</span>
               </li>
               <li className="flex items-center gap-4">
