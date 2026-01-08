@@ -65,19 +65,19 @@ const services: (ServiceItem & { color: string })[] = [
 
 const annualSchedule = [
   {
-    quarter: '1Q',
+    quarter: '1분기',
     items: ['개정세법/노무 안내', '정기주총/정관검토', '정기배당/법인세', '임원보수/결산', '중진공/R&D/바우처']
   },
   {
-    quarter: '2Q',
+    quarter: '2분기',
     items: ['주식가치평가', '신용등급 산출/관리', '지분 계획 수립', '종합소득세 자문', '보증기관 진행']
   },
   {
-    quarter: '3Q',
+    quarter: '3분기',
     items: ['개정세법(안) 안내', '중간배당/지분이동', '상반기 경영결과 파악', '하반기 경영계획', '채권기관 진행']
   },
   {
-    quarter: '4Q',
+    quarter: '4분기',
     items: ['당해 년도 가결산', '신용등급 집중관리', '개정세법 대비', '임직원 상여/성과급', '가지급금 체크']
   }
 ];
@@ -123,42 +123,42 @@ export const Services: React.FC = () => {
                   { top: '80%', left: '32%' },    // 6: Bottom Left
                   { top: '80%', left: '68%' }     // 7: Bottom Right
                 ];
-                
+
                 // Mapping: ip(0), funding(1), management(2), gov(3), cert(4), global(5), mkt(6)
                 // Center Management (idx 2) at positions[3]
-                const mapping = [0, 1, 3, 4, 2, 5, 6]; 
+                const mapping = [0, 1, 3, 4, 2, 5, 6];
                 const pos = positions[mapping[idx]];
 
                 return (
-                  <div 
+                  <div
                     key={s.id}
                     className="absolute w-[290px] h-[330px] transition-all duration-700 hover:z-40 group"
                     style={{ top: pos.top, left: pos.left, transform: 'translate(-50%, -50%)' }}
                   >
                     {/* Outer glow effect */}
                     <div className="absolute inset-2 bg-amber-500/0 group-hover:bg-amber-500/10 blur-2xl transition-all duration-500 rounded-full"></div>
-                    
+
                     <div className={`w-full h-full ${s.id === 'management' ? 'bg-amber-600' : 'bg-slate-900'} clip-hexagon flex flex-col items-center justify-center p-12 text-center shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:bg-amber-500 border border-white/5`}>
                       <s.icon size={48} className={`${s.id === 'management' ? 'text-white' : 'text-amber-500'} mb-6 group-hover:text-white transition-colors duration-300`} strokeWidth={1.2} />
                       <h4 className="text-white font-black text-xl mb-4 tracking-tight leading-tight">{s.title}</h4>
                       <div className="w-10 h-px bg-white/30 mb-5 group-hover:bg-white/50 transition-colors"></div>
                       <p className="text-white/60 text-xs leading-relaxed font-light group-hover:text-white/90 transition-colors line-clamp-3 px-1">{s.description}</p>
-                      
+
                       {/* Detailed Hover Overlay */}
                       <div className="absolute inset-0 bg-slate-950/95 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center p-10 transition-all duration-500 clip-hexagon">
-                         <div className="mb-5 p-3 bg-amber-500 rounded-lg text-slate-950">
-                            <s.icon size={24} strokeWidth={2} />
-                         </div>
-                         <h4 className="text-white font-black mb-6 text-sm tracking-widest uppercase">{s.title} 상세</h4>
-                         <ul className="text-white/80 text-[11px] space-y-2.5 text-left w-full max-w-[180px]">
-                           {s.details.slice(0, 6).map((d, i) => (
-                             <li key={i} className="flex items-start gap-2 font-medium">
-                                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0 mt-1.5"></span>
-                                <span className="line-clamp-1 leading-tight">{d}</span>
-                             </li>
-                           ))}
-                         </ul>
-                         <Link to="/contact" className="mt-8 text-xs font-black text-amber-500 hover:text-white transition-colors border-b border-amber-500/30 pb-1">사전 검토 신청</Link>
+                        <div className="mb-5 p-3 bg-amber-500 rounded-lg text-slate-950">
+                          <s.icon size={24} strokeWidth={2} />
+                        </div>
+                        <h4 className="text-white font-black mb-6 text-sm tracking-widest uppercase">{s.title} 상세</h4>
+                        <ul className="text-white/80 text-[11px] space-y-2.5 text-left w-full max-w-[180px]">
+                          {s.details.slice(0, 6).map((d, i) => (
+                            <li key={i} className="flex items-start gap-2 font-medium">
+                              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0 mt-1.5"></span>
+                              <span className="line-clamp-1 leading-tight">{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <Link to="/contact" className="mt-8 text-xs font-black text-amber-500 hover:text-white transition-colors border-b border-amber-500/30 pb-1">사전 검토 신청</Link>
                       </div>
                     </div>
                   </div>
@@ -177,12 +177,12 @@ export const Services: React.FC = () => {
                     <h4 className="text-2xl font-black tracking-tight mb-3">{s.title}</h4>
                     <p className={`text-sm font-light leading-relaxed mb-6 ${s.id === 'management' ? 'text-white/80' : 'text-slate-500'}`}>{s.description}</p>
                     <ul className={`grid grid-cols-1 gap-2 border-t pt-6 ${s.id === 'management' ? 'border-white/20' : 'border-slate-100'}`}>
-                        {s.details.map((d, i) => (
-                            <li key={i} className="flex items-center gap-2 text-xs font-bold">
-                                <div className={`w-1 h-1 rounded-full ${s.id === 'management' ? 'bg-white' : 'bg-amber-500'}`}></div>
-                                {d}
-                            </li>
-                        ))}
+                      {s.details.map((d, i) => (
+                        <li key={i} className="flex items-center gap-2 text-xs font-bold">
+                          <div className={`w-1 h-1 rounded-full ${s.id === 'management' ? 'bg-white' : 'bg-amber-500'}`}></div>
+                          {d}
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -191,7 +191,8 @@ export const Services: React.FC = () => {
           </div>
         </div>
 
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .clip-hexagon {
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
           }
@@ -201,102 +202,77 @@ export const Services: React.FC = () => {
       {/* Annual Care Schedule - Timeline */}
       <section className="py-32 bg-white border-y border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Annual Care Schedule</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter uppercase">1년 케어 일정</h3>
-              <p className="text-slate-500 mt-6 font-light">분기별 핵심 경영 이슈를 선제적으로 진단하고 밀착 케어합니다.</p>
-            </div>
-            
-            {/* Timeline - Desktop */}
-            <div className="hidden md:block relative">
-              {/* Horizontal Line */}
-              <div className="absolute top-20 left-0 right-0 h-0.5 bg-slate-200"></div>
-              
-              <div className="relative flex justify-between items-start">
-                {annualSchedule.map((quarter, idx) => (
-                  <div key={idx} className="flex-1 relative group">
-                    {/* Timeline Dot */}
-                    <div className="absolute top-16 left-1/2 -translate-x-1/2 w-12 h-12 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-xs font-black text-amber-600">{quarter.quarter}</span>
-                    </div>
-                    
-                    {/* Content Card */}
-                    <div className="mt-32 bg-slate-50 rounded-2xl p-6 shadow-sm border border-slate-100 group-hover:shadow-xl group-hover:border-amber-200 transition-all duration-300">
-                      <div className="space-y-3">
-                        {quarter.items.map((item, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-2"></div>
-                            <span className="text-sm font-semibold text-slate-700 leading-relaxed">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-center mb-20">
+            <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Annual Care Schedule</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter uppercase">1년 케어 일정</h3>
+            <p className="text-slate-500 mt-6 font-light">분기별 핵심 경영 이슈를 선제적으로 진단하고 밀착 케어합니다.</p>
+          </div>
 
-            {/* Mobile Grid Layout */}
-            <div className="md:hidden grid grid-cols-1 gap-8">
+          {/* Timeline - Desktop */}
+          <div className="hidden md:block relative">
+            {/* Horizontal Line */}
+            <div className="absolute top-20 left-0 right-0 h-0.5 bg-slate-200"></div>
+
+            <div className="relative flex justify-between items-start">
               {annualSchedule.map((quarter, idx) => (
-                <div key={idx} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col relative">
-                  <div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center font-black text-xl mb-6 shadow-lg">
-                    {quarter.quarter}
+                <div key={idx} className="flex-1 relative group">
+                  {/* Timeline Dot */}
+                  <div className="absolute top-16 left-1/2 -translate-x-1/2 w-12 h-12 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-xs font-black text-amber-600">{quarter.quarter}</span>
                   </div>
-                  <div className="space-y-4">
-                    {quarter.items.map((item, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></div>
-                        <span className="text-sm font-semibold text-slate-700">{item}</span>
-                      </div>
-                    ))}
+
+                  {/* Content Card */}
+                  <div className="mt-32 bg-slate-50 rounded-2xl p-6 shadow-sm border border-slate-100 group-hover:shadow-xl group-hover:border-amber-200 transition-all duration-300">
+                    <div className="space-y-3">
+                      {quarter.items.map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-2"></div>
+                          <span className="text-sm font-semibold text-slate-700 leading-relaxed">{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Mobile Grid Layout */}
+          <div className="md:hidden grid grid-cols-1 gap-8">
+            {annualSchedule.map((quarter, idx) => (
+              <div key={idx} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col relative">
+                <div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center font-black text-xl mb-6 shadow-lg">
+                  {quarter.quarter}
+                </div>
+                <div className="space-y-4">
+                  {quarter.items.map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></div>
+                      <span className="text-sm font-semibold text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Process Section - Timeline */}
       <section className="py-40 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Workflow</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-slate-950 mb-4 tracking-tighter uppercase">Service Process</h3>
-              <p className="text-slate-500 font-light">단계별 체계적인 프로세스로 최적의 결과를 도출합니다.</p>
-            </div>
-            
-            {/* Desktop Timeline */}
-            <div className="hidden md:block relative">
-              {/* Connecting Line */}
-              <div className="absolute top-16 left-0 right-0 h-0.5 bg-slate-200"></div>
-              
-              <div className="relative flex justify-between items-start">
-                {[
-                  { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
-                  { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
-                  { step: '03', title: '자문 계약', desc: '솔루션 제시 및 과업 확정' },
-                  { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
-                  { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex-1 relative group">
-                    {/* Step Circle */}
-                    <div className="absolute top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 group-hover:bg-amber-500 transition-all duration-300">
-                      <span className="text-sm font-black text-amber-600 group-hover:text-white">{item.step}</span>
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="mt-24 text-center">
-                      <h4 className="font-bold text-slate-900 mb-2 text-sm uppercase tracking-wide group-hover:text-amber-600 transition-colors">{item.title}</h4>
-                      <p className="text-xs text-slate-500 leading-relaxed font-medium">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-center mb-20">
+            <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Workflow</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-950 mb-4 tracking-tighter uppercase">Service Process</h3>
+            <p className="text-slate-500 font-light">단계별 체계적인 프로세스로 최적의 결과를 도출합니다.</p>
+          </div>
 
-            {/* Mobile Vertical Timeline */}
-            <div className="md:hidden space-y-8">
+          {/* Desktop Timeline */}
+          <div className="hidden md:block relative">
+            {/* Connecting Line */}
+            <div className="absolute top-16 left-0 right-0 h-0.5 bg-slate-200"></div>
+
+            <div className="relative flex justify-between items-start">
               {[
                 { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
                 { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
@@ -304,25 +280,50 @@ export const Services: React.FC = () => {
                 { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
                 { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
               ].map((item, idx) => (
-                <div key={idx} className="relative flex gap-6">
-                  {/* Vertical Line */}
-                  {idx < 4 && (
-                    <div className="absolute left-6 top-16 w-0.5 h-full bg-slate-200"></div>
-                  )}
-                  
+                <div key={idx} className="flex-1 relative group">
                   {/* Step Circle */}
-                  <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 shrink-0">
-                    <span className="text-sm font-black text-white">{item.step}</span>
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 group-hover:bg-amber-500 transition-all duration-300">
+                    <span className="text-sm font-black text-amber-600 group-hover:text-white">{item.step}</span>
                   </div>
-                  
+
                   {/* Content */}
-                  <div className="flex-1 pt-2">
-                    <h4 className="font-bold text-slate-900 mb-2 text-base">{item.title}</h4>
-                    <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                  <div className="mt-24 text-center">
+                    <h4 className="font-bold text-slate-900 mb-2 text-sm uppercase tracking-wide group-hover:text-amber-600 transition-colors">{item.title}</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Mobile Vertical Timeline */}
+          <div className="md:hidden space-y-8">
+            {[
+              { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
+              { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
+              { step: '03', title: '자문 계약', desc: '솔루션 제시 및 과업 확정' },
+              { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
+              { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
+            ].map((item, idx) => (
+              <div key={idx} className="relative flex gap-6">
+                {/* Vertical Line */}
+                {idx < 4 && (
+                  <div className="absolute left-6 top-16 w-0.5 h-full bg-slate-200"></div>
+                )}
+
+                {/* Step Circle */}
+                <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 shrink-0">
+                  <span className="text-sm font-black text-white">{item.step}</span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pt-2">
+                  <h4 className="font-bold text-slate-900 mb-2 text-base">{item.title}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -54,7 +54,7 @@ export const About: React.FC = () => {
                   <img 
                     src={teamMembers[0].image} 
                     alt={teamMembers[0].name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-slate-200">
@@ -112,7 +112,7 @@ export const About: React.FC = () => {
                     <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-slate-200">

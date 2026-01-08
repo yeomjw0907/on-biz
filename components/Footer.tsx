@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -47,25 +47,30 @@ export const Footer: React.FC = () => {
             <ul className="space-y-6 text-[11px] font-bold uppercase tracking-widest">
               <li className="flex items-start gap-4">
                 <MapPin size={16} className="text-amber-500 shrink-0 mt-0.5" />
-                <span className="leading-relaxed">서울특별시 강남구 테헤란로 123,<br/>온빌딩 5층</span>
+                <span className="leading-relaxed">경기도 화성시 동탄중심상가2길 26-15,<br/>8층 802-433B호(반송동, 지성프라자)</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone size={16} className="text-amber-500 shrink-0" />
-                <span className="text-white">02-1234-5678</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <Mail size={16} className="text-amber-500 shrink-0" />
-                <span>contact@onbiz-consulting.kr</span>
+                <span className="text-white">010-9251-8022</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-900 mt-20 pt-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p>&copy; {new Date().getFullYear()} OnBiz Consulting. All rights reserved.</p>
-          <div className="flex gap-8">
-            <span className="cursor-pointer hover:text-white transition-colors">Terms of Service</span>
-            <span className="cursor-pointer hover:text-white transition-colors">Privacy Policy</span>
+        <div className="border-t border-slate-900 mt-20 pt-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div className="space-y-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+              <p>&copy; {new Date().getFullYear()} OnBiz Consulting. All rights reserved.</p>
+              <div className="text-[9px] font-medium normal-case tracking-normal text-slate-500 space-y-1">
+                <p>법인명: 주식회사 온비즈 | 대표자: 박희락</p>
+                <p>사업자등록번호: 377-87-03437</p>
+                <p>소재지: 경기도 화성시 동탄중심상가2길 26-15, 8층 802-433B호(반송동, 지성프라자)</p>
+              </div>
+            </div>
+            <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+              <span className="cursor-pointer hover:text-white transition-colors">Terms of Service</span>
+              <span className="cursor-pointer hover:text-white transition-colors">Privacy Policy</span>
+            </div>
           </div>
         </div>
       </div>

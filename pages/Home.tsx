@@ -1,68 +1,113 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  ArrowUpRight, 
-  Users, 
-  Briefcase, 
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Users,
+  Briefcase,
   Trophy,
   Lightbulb,
   Coins,
   FileText,
   Globe,
-  ShieldCheck,
-  LayoutDashboard
+  Shield,
+  LayoutDashboard,
+  User,
+  CheckCircle2,
+  Mail
 } from 'lucide-react';
+import { teamMembers } from '../data';
+import { InquiryForm } from '../components/InquiryForm';
+import { ServiceItem } from '../types';
+
+const services: (ServiceItem & { color: string })[] = [
+  {
+    id: 'ip',
+    title: '기술 IP 컨설팅',
+    description: '기업의 독보적인 기술 가치를 평가받고 지식재산권을 확보하여 무형 자산의 가치를 극대화합니다.',
+    icon: Lightbulb,
+    color: 'bg-slate-800',
+    details: ['기술평가', '기술신용보증', '상표권 등록', '지식재산권', '기술가치평가', 'IP 전략', 'FSSC 22000', 'FCE', 'SID', '특허 출원', '디자인권', '실용신안', '영업비밀 보호']
+  },
+  {
+    id: 'funding',
+    title: '자금 컨설팅',
+    description: '신용보증기금, 기술보증기금, 정책자금 등 최적의 조건으로 자금을 조달합니다.',
+    icon: Coins,
+    color: 'bg-slate-800',
+    details: ['신용/기술보증기금', '지역신용보증재단', '중진공/소진공', '초창패/예창패', '사옥/공장취득', '시설/운전자금', '정책자금', '이차보전', 'C1자금', '유동화']
+  },
+  {
+    id: 'management',
+    title: '경영 컨설팅',
+    description: '기업신용등급관리, 재무구조개선, 가업승계, IPO, M&A 등 전방위적 경영 자문을 제공합니다.',
+    icon: Briefcase,
+    color: 'bg-amber-600',
+    details: ['기업신용등급관리', '결산보고서', '정관작성', '가수금/가지급금 해결', '재무비율개선', '세무조사대응', '중대재해처벌대응', '주총컨서류', '주식평가', '가업승계', '엑싯전략', '홀딩스설립', 'IPO', 'M&A']
+  },
+  {
+    id: 'government',
+    title: '정부지원 컨설팅',
+    description: '고용지원금, 정부지원사업, 수출/혁신바우처 등 각종 지자체 바우처 지원사업을 매칭합니다.',
+    icon: FileText,
+    color: 'bg-slate-800',
+    details: ['고용지원금', '년간 일정표', '정부지원사업', '수출바우처', '혁신바우처', '지자체바우처', '사업계획서', '마케팅/인테리어 지원']
+  },
+  {
+    id: 'certification',
+    title: '기업인증 컨설팅',
+    description: '벤처, 이노비즈, 연구소, ISO 등 기업 신뢰도를 높이는 각종 공인 인증을 취득 지원합니다.',
+    icon: Shield,
+    color: 'bg-slate-800',
+    details: ['연구소', 'ISO', '벤처/이노비즈', '메인비즈', '여성기업', '뿌리/소부장기업', '공장등록', '직접생산', '병역특례', '나라장터', '조달인증', 'ESG', '녹색인증', 'HACCP']
+  },
+  {
+    id: 'global',
+    title: '해외진출 / 판로개척',
+    description: '코트라 지원부터 해외 바이어 매칭, 수출박람회까지 글로벌 시장 진출을 전방위 지원합니다.',
+    icon: Globe,
+    color: 'bg-slate-800',
+    details: ['코트라 지원', '한인무역협회', '해외박람회', '로컬바이어 컨택', '수출박람회', '나라장터', 'SNS마케팅', '유튜브 관리', 'MSDS', 'CO (원산지증명서)', 'FTA 활용', '수출입 통관', '해외 인증', '해외 법인 설립', '글로벌 마케팅']
+  },
+  {
+    id: 'marketing',
+    title: '마케팅 / 조달 컨설팅',
+    description: '홈페이지, IR자료, 영상제작부터 나라장터 등록, SNS계정 관리까지 마케팅을 지원합니다.',
+    icon: LayoutDashboard,
+    color: 'bg-slate-800',
+    details: ['홈페이지 제작', 'IR자료 제작', '영상제작', '바우처활용', '나라장터 등록', 'MAS 등록', 'SNS계정관리', '커머스 관리', '해외바이어 매칭', '박람회 지원']
+  }
+];
+
+const annualSchedule = [
+  {
+    quarter: '1분기',
+    items: ['개정세법/노무 안내', '정기주총/정관검토', '정기배당/법인세', '임원보수/결산', '중진공/R&D/바우처']
+  },
+  {
+    quarter: '2분기',
+    items: ['주식가치평가', '신용등급 산출/관리', '지분 계획 수립', '종합소득세 자문', '보증기관 진행']
+  },
+  {
+    quarter: '3분기',
+    items: ['개정세법(안) 안내', '중간배당/지분이동', '상반기 경영결과 파악', '하반기 경영계획', '채권기관 진행']
+  },
+  {
+    quarter: '4분기',
+    items: ['당해 년도 가결산', '신용등급 집중관리', '개정세법 대비', '임직원 상여/성과급', '가지급금 체크']
+  }
+];
 
 export const Home: React.FC = () => {
-  const portfolioItems = [
-    {
-      icon: Lightbulb,
-      title: '기술 / 특허 IP',
-      desc: '기업의 독보적인 기술 가치를 평가하고 지식재산권을 확보하여 권리를 극대화합니다.',
-    },
-    {
-      icon: Coins,
-      title: '자금 컨설팅',
-      desc: '시설 및 운전 자금 등 기업 경영에 필수적인 자금을 최적의 조건으로 조달합니다.',
-    },
-    {
-      icon: Briefcase,
-      title: '경영 컨설팅',
-      desc: '가업 승계, 법인 전환 등 기업의 지속 가능한 성장을 위한 전략 자문을 제공합니다.',
-    },
-    {
-      icon: FileText,
-      title: '정부지원 컨설팅',
-      desc: '정부의 다양한 지원 사업과 바우처를 정밀 분석하여 최적의 혜택을 매칭합니다.',
-    },
-    {
-      icon: ShieldCheck,
-      title: '기업인증 컨설팅',
-      desc: '벤처, 이노비즈 등 기업 신뢰도를 높이는 공인 인증 취득과 연구소 설립을 지원합니다.',
-    },
-    {
-      icon: Globe,
-      title: '해외진출 / 수출',
-      desc: '글로벌 시장 진입을 위한 현지화 전략과 바이어 매칭 등 성공적 진출을 돕습니다.',
-    },
-    {
-      icon: LayoutDashboard,
-      title: '마케팅 / 조달',
-      desc: '브랜드 가치를 높이는 마케팅과 공공 조달 시장 진입으로 신규 매출을 창출합니다.',
-    }
-  ];
-
   return (
     <div className="flex flex-col min-h-screen">
-      
+
       {/* Hero Section */}
       <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000" 
-            alt="Corporate Office" 
+          <img
+            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000"
+            alt="Corporate Office"
             className="w-full h-full object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-slate-950/40"></div>
@@ -76,7 +121,7 @@ export const Home: React.FC = () => {
                 OnBiz Strategy Consulting Firm
               </span>
             </div>
-            
+
             <h1 className="flex flex-col gap-4 mb-10">
               <div className="animate-fade-up delay-100">
                 <span className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tighter uppercase">ON THE BEST</span>
@@ -85,20 +130,20 @@ export const Home: React.FC = () => {
                 <span className="text-white font-black text-4xl md:text-6xl lg:text-7xl tracking-tighter uppercase">ON THE SPECIAL</span>
               </div>
             </h1>
-            
+
             <div className="flex justify-center mb-10 animate-fade-up delay-300">
               <div className="h-px bg-white/20 animate-line w-[40px]"></div>
             </div>
 
             <div className="animate-fade-up delay-300 mb-12">
               <p className="text-slate-100 text-base md:text-xl font-medium tracking-wide leading-relaxed max-w-2xl mx-auto">
-                창업부터 IPO, EXIT 까지<br/>
+                창업부터 IPO, EXIT 까지<br />
                 기업성장의 모든 단계에 꼭 필요한 전략적 맞춤 솔루션과 전문 컨설팅을 제공합니다.
               </p>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-500">
-              <button 
+              <button
                 onClick={() => {
                   const servicesSection = document.getElementById('services-section');
                   if (servicesSection) {
@@ -110,9 +155,9 @@ export const Home: React.FC = () => {
                 서비스 항목
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
-              
-              <Link 
-                to="/contact" 
+
+              <Link
+                to="/contact"
                 className="px-12 py-4 bg-transparent border border-white/20 text-white font-bold text-sm tracking-widest uppercase transition-all hover:bg-white hover:text-slate-950"
               >
                 사전검토 의뢰
@@ -122,66 +167,91 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Preview Section - Now 7 items */}
-      <section id="services-section" className="py-32 bg-slate-50 relative overflow-hidden">
+      {/* Hexagonal Honeycomb Section - Copied from Services */}
+      <section className="py-32 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-24 border-b border-slate-200 pb-12 gap-8">
-            <div className="max-w-xl">
-              <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Core Portfolio</h2>
-              <h3 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight tracking-tighter">
-                성공적인 경영을 위한 <br/>전략적 전문 자문
-              </h3>
-            </div>
-            <p className="text-slate-400 text-sm md:max-w-xs leading-relaxed font-medium">
-              각 분야 최고의 전문가 그룹이 귀사의 성장을 위한 <br className="hidden md:block"/> 최적화된 로드맵을 설계합니다.
-            </p>
+          <div className="text-center mb-32">
+            <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-4">Core Competency</h2>
+            <h3 className="text-4xl font-black text-slate-900 tracking-tighter">온비즈 7대 전문 분야</h3>
+            <p className="mt-4 text-slate-400 font-light text-sm">중앙의 경영 컨설팅을 기점으로 유기적인 전문 자문이 이루어집니다.</p>
           </div>
 
-          {/* Hexagonal Grid Layout */}
-          <div className="relative flex justify-center items-center min-h-[800px] md:min-h-[900px]">
-            {/* Desktop Hexagonal Layout */}
-            <div className="hidden md:block relative w-[1000px] h-[800px]">
-              {portfolioItems.map((item, idx) => {
+          {/* Honeycomb Grid Container with wider dimensions */}
+          <div className="relative flex justify-center items-center min-h-[800px] md:min-h-[1000px]">
+            {/* Desktop Honeycomb Layout with increased gutter */}
+            <div className="hidden md:block relative w-[1100px] h-[850px]">
+              {services.map((s, idx) => {
+                // Optimized positions for readability (X and Y gap increased)
                 const positions = [
-                  { top: '15%', left: '30%' },
-                  { top: '15%', left: '70%' },
-                  { top: '45%', left: '10%' },
-                  { top: '45%', left: '50%' },
-                  { top: '45%', left: '90%' },
-                  { top: '75%', left: '30%' },
-                  { top: '75%', left: '70%' }
+                  { top: '20%', left: '32%' },    // 1: Top Left
+                  { top: '20%', left: '68%' },    // 2: Top Right
+                  { top: '50%', left: '15%' },    // 3: Mid Left
+                  { top: '50%', left: '50%' },    // 4: CENTER (Management)
+                  { top: '50%', left: '85%' },    // 5: Mid Right
+                  { top: '80%', left: '32%' },    // 6: Bottom Left
+                  { top: '80%', left: '68%' }     // 7: Bottom Right
                 ];
-                const pos = positions[idx];
+
+                // Mapping: ip(0), funding(1), management(2), gov(3), cert(4), global(5), mkt(6)
+                // Center Management (idx 2) at positions[3]
+                const mapping = [0, 1, 3, 4, 2, 5, 6];
+                const pos = positions[mapping[idx]];
 
                 return (
-                  <div 
-                    key={idx}
-                    className="absolute w-[240px] h-[280px] transition-all duration-700 hover:z-40 group"
+                  <div
+                    key={s.id}
+                    className="absolute w-[290px] h-[330px] transition-all duration-700 hover:z-40 group"
                     style={{ top: pos.top, left: pos.left, transform: 'translate(-50%, -50%)' }}
                   >
+                    {/* Outer glow effect */}
                     <div className="absolute inset-2 bg-amber-500/0 group-hover:bg-amber-500/10 blur-2xl transition-all duration-500 rounded-full"></div>
-                    
-                    <div className="w-full h-full bg-slate-900 clip-hexagon flex flex-col items-center justify-center p-8 text-center shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:bg-amber-500 border border-white/5">
-                      <item.icon size={40} className="text-amber-500 mb-5 group-hover:text-white transition-colors duration-300" strokeWidth={1.2} />
-                      <h4 className="text-white font-black text-lg mb-3 tracking-tight leading-tight">{item.title}</h4>
-                      <div className="w-8 h-px bg-white/30 mb-4 group-hover:bg-white/50 transition-colors"></div>
-                      <p className="text-white/60 text-xs leading-relaxed font-light group-hover:text-white/90 transition-colors line-clamp-3 px-2">{item.desc}</p>
+
+                    <div className={`w-full h-full ${s.id === 'management' ? 'bg-amber-600' : 'bg-slate-900'} clip-hexagon flex flex-col items-center justify-center p-12 text-center shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:bg-amber-500 border border-white/5`}>
+                      <s.icon size={48} className={`${s.id === 'management' ? 'text-white' : 'text-amber-500'} mb-6 group-hover:text-white transition-colors duration-300`} strokeWidth={1.2} />
+                      <h4 className="text-white font-black text-xl mb-4 tracking-tight leading-tight">{s.title}</h4>
+                      <div className="w-10 h-px bg-white/30 mb-5 group-hover:bg-white/50 transition-colors"></div>
+                      <p className="text-white/60 text-xs leading-relaxed font-light group-hover:text-white/90 transition-colors line-clamp-3 px-1">{s.description}</p>
+
+                      {/* Detailed Hover Overlay */}
+                      <div className="absolute inset-0 bg-slate-950/95 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center p-10 transition-all duration-500 clip-hexagon">
+                        <div className="mb-5 p-3 bg-amber-500 rounded-lg text-slate-950">
+                          <s.icon size={24} strokeWidth={2} />
+                        </div>
+                        <h4 className="text-white font-black mb-6 text-sm tracking-widest uppercase">{s.title} 상세</h4>
+                        <ul className="text-white/80 text-[11px] space-y-2.5 text-left w-full max-w-[180px]">
+                          {s.details.slice(0, 6).map((d, i) => (
+                            <li key={i} className="flex items-start gap-2 font-medium">
+                              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0 mt-1.5"></span>
+                              <span className="line-clamp-1 leading-tight">{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <Link to="/contact" className="mt-8 text-xs font-black text-amber-500 hover:text-white transition-colors border-b border-amber-500/30 pb-1">사전 검토 신청</Link>
+                      </div>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Mobile Grid Layout */}
-            <div className="md:hidden grid grid-cols-1 gap-6 w-full px-4">
-              {portfolioItems.map((item, idx) => (
-                <div key={idx} className="group p-8 rounded-3xl shadow-xl border border-slate-200 flex flex-col gap-4 transition-all bg-white hover:bg-amber-500 hover:text-white">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-900 text-amber-500 group-hover:bg-white group-hover:text-amber-500">
-                    <item.icon size={28} />
+            {/* Mobile Grid Layout - Clean & Scrollable */}
+            <div className="md:hidden grid grid-cols-1 gap-8 w-full px-6">
+              {services.map((s) => (
+                <div key={s.id} className={`p-8 rounded-[2rem] shadow-xl border border-slate-100 flex flex-col gap-6 transition-all ${s.id === 'management' ? 'bg-amber-600 text-white' : 'bg-white text-slate-900'}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${s.id === 'management' ? 'bg-white text-amber-600' : 'bg-slate-900 text-amber-500'}`}>
+                    <s.icon size={28} />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-black tracking-tight mb-3">{item.title}</h4>
-                    <p className="text-sm font-light leading-relaxed text-slate-500 group-hover:text-white/90">{item.desc}</p>
+                    <h4 className="text-2xl font-black tracking-tight mb-3">{s.title}</h4>
+                    <p className={`text-sm font-light leading-relaxed mb-6 ${s.id === 'management' ? 'text-white/80' : 'text-slate-500'}`}>{s.description}</p>
+                    <ul className={`grid grid-cols-1 gap-2 border-t pt-6 ${s.id === 'management' ? 'border-white/20' : 'border-slate-100'}`}>
+                      {s.details.map((d, i) => (
+                        <li key={i} className="flex items-center gap-2 text-xs font-bold">
+                          <div className={`w-1 h-1 rounded-full ${s.id === 'management' ? 'bg-white' : 'bg-amber-500'}`}></div>
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
@@ -189,37 +259,97 @@ export const Home: React.FC = () => {
           </div>
         </div>
 
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .clip-hexagon {
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
           }
         `}} />
       </section>
 
-      {/* Philosophy Section */}
+      {/* Annual Care Schedule - Timeline - Copied from Services */}
+      <section id="services-section" className="py-32 bg-white border-y border-slate-200 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Annual Care Schedule</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter uppercase">1년 케어 일정</h3>
+            <p className="text-slate-500 mt-6 font-light">분기별 핵심 경영 이슈를 선제적으로 진단하고 밀착 케어합니다.</p>
+          </div>
+
+          {/* Timeline - Desktop */}
+          <div className="hidden md:block relative">
+            {/* Horizontal Line */}
+            <div className="absolute top-20 left-0 right-0 h-0.5 bg-slate-200"></div>
+
+            <div className="relative flex justify-between items-start">
+              {annualSchedule.map((quarter, idx) => (
+                <div key={idx} className="flex-1 relative group">
+                  {/* Timeline Dot */}
+                  <div className="absolute top-16 left-1/2 -translate-x-1/2 w-12 h-12 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-xs font-black text-amber-600">{quarter.quarter}</span>
+                  </div>
+
+                  {/* Content Card */}
+                  <div className="mt-32 bg-slate-50 rounded-2xl p-6 shadow-sm border border-slate-100 group-hover:shadow-xl group-hover:border-amber-200 transition-all duration-300">
+                    <div className="space-y-3">
+                      {quarter.items.map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-2"></div>
+                          <span className="text-sm font-semibold text-slate-700 leading-relaxed">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Grid Layout */}
+          <div className="md:hidden grid grid-cols-1 gap-8">
+            {annualSchedule.map((quarter, idx) => (
+              <div key={idx} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col relative">
+                <div className="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center font-black text-xl mb-6 shadow-lg">
+                  {quarter.quarter}
+                </div>
+                <div className="space-y-4">
+                  {quarter.items.map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></div>
+                      <span className="text-sm font-semibold text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section - Expertise (Kept from original Main Page) */}
       <section className="py-32 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
             <div className="lg:col-span-7">
               <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Expertise</h2>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
-                경험으로 증명된 <br className="hidden md:block"/>전문 지식의 힘
+                경험으로 증명된 <br className="hidden md:block" />전문 지식의 힘
               </h3>
               <p className="text-slate-500 text-lg leading-relaxed font-light mb-12 max-w-xl">
                 온비즈는 수많은 프로젝트 성공 경험을 바탕으로, 단순한 자문을 넘어 실질적인 비즈니스 성과를 창출해냅니다.
               </p>
               <div className="grid grid-cols-2 gap-12">
                 <div>
-                    <div className="text-3xl font-black text-slate-950 mb-1">1,200+</div>
-                    <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Successful Projects</div>
+                  <div className="text-3xl font-black text-slate-950 mb-1">1,200+</div>
+                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Successful Projects</div>
                 </div>
                 <div>
-                    <div className="text-3xl font-black text-slate-950 mb-1">10Y+</div>
-                    <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Industry Know-how</div>
+                  <div className="text-3xl font-black text-slate-950 mb-1">10Y+</div>
+                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Industry Know-how</div>
                 </div>
               </div>
             </div>
-            
+
             <div className="lg:col-span-5 flex flex-col gap-4">
               {[
                 { icon: Trophy, title: '결과 지향적 자문', desc: '현장에서 즉시 작동하는 실질적인 해결책을 제시합니다.' },
@@ -240,24 +370,136 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-40 bg-slate-950 relative flex items-center justify-center">
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tighter">
-            귀사의 가치를 <br/>온전히 실현하십시오.
-          </h2>
-          <div className="w-10 h-px bg-amber-600 mx-auto mb-10"></div>
-          <p className="text-slate-400 mb-12 text-lg font-light tracking-wide">
-            전문 자문팀이 귀사의 현황을 정밀하게 진단해 드립니다.
-          </p>
-          <Link 
-            to="/contact" 
-            className="inline-flex items-center gap-3 px-14 py-5 bg-amber-600 text-white text-xs font-black tracking-[0.3em] uppercase hover:bg-amber-500 transition-all shadow-2xl"
-          >
-            사전검토의뢰서 접수 <ArrowRight size={18}/>
-          </Link>
+      {/* Team Section - Added from About.tsx */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Our Professionals</h2>
+            <h3 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">온비즈 전문가 그룹</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member) => (
+              <div key={member.id} className="group relative">
+                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] mb-6 shadow-lg bg-slate-100">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-slate-200">
+                      <User size={64} className="text-slate-300" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p className="text-white/80 text-xs mb-4 leading-relaxed line-clamp-4 font-light">
+                      {member.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-slate-900 mb-1 tracking-tight">{member.name}</h3>
+                  <p className="text-amber-600 font-bold text-[10px] uppercase tracking-widest mb-3">{member.position}</p>
+
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {member.expertise.slice(0, 2).map((skill, idx) => (
+                      <span key={idx} className="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] rounded font-bold border border-slate-100">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Process Section - Timeline - Copied from Services */}
+      <section className="py-40 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-amber-600 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Workflow</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-950 mb-4 tracking-tighter uppercase">Service Process</h3>
+            <p className="text-slate-500 font-light">단계별 체계적인 프로세스로 최적의 결과를 도출합니다.</p>
+          </div>
+
+          {/* Desktop Timeline */}
+          <div className="hidden md:block relative">
+            {/* Connecting Line */}
+            <div className="absolute top-16 left-0 right-0 h-0.5 bg-slate-200"></div>
+
+            <div className="relative flex justify-between items-start">
+              {[
+                { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
+                { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
+                { step: '03', title: '자문 계약', desc: '솔루션 제시 및 과업 확정' },
+                { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
+                { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex-1 relative group">
+                  {/* Step Circle */}
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 group-hover:scale-110 group-hover:bg-amber-500 transition-all duration-300">
+                    <span className="text-sm font-black text-amber-600 group-hover:text-white">{item.step}</span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mt-24 text-center">
+                    <h4 className="font-bold text-slate-900 mb-2 text-sm uppercase tracking-wide group-hover:text-amber-600 transition-colors">{item.title}</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Vertical Timeline */}
+          <div className="md:hidden space-y-8">
+            {[
+              { step: '01', title: '사전검토 의뢰', desc: '의뢰서 및 기초 자료 접수' },
+              { step: '02', title: '전문가 진단', desc: '분야별 심층 분석 진행' },
+              { step: '03', title: '자문 계약', desc: '솔루션 제시 및 과업 확정' },
+              { step: '04', title: '컨설팅 수행', desc: '밀착 관리 및 결과 도출' },
+              { step: '05', title: '사후 관리', desc: '지속적 피드백 및 고도화' }
+            ].map((item, idx) => (
+              <div key={idx} className="relative flex gap-6">
+                {/* Vertical Line */}
+                {idx < 4 && (
+                  <div className="absolute left-6 top-16 w-0.5 h-full bg-slate-200"></div>
+                )}
+
+                {/* Step Circle */}
+                <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 shrink-0">
+                  <span className="text-sm font-black text-white">{item.step}</span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pt-2">
+                  <h4 className="font-bold text-slate-900 mb-2 text-base">{item.title}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Inquiry Form Section */}
+      <section className="py-40 bg-slate-950 relative flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          {/* Background gradient or subtle pattern */}
+          <div className="absolute inset-0 bg-slate-950"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-600/10 blur-[120px] rounded-full opacity-50"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 w-full relative z-10">
+          <InquiryForm />
+        </div>
+      </section>
+
     </div>
   );
 };
