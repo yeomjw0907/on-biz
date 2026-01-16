@@ -375,7 +375,7 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Our Professionals</h2>
-            <h3 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">온비즈 전문가 그룹</h3>
+            <h3 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">구성원</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

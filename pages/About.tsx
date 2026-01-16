@@ -6,21 +6,21 @@ import { teamMembers } from '../data';
 export const About: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
-      
+
       {/* Intro Hero */}
       <div className="relative bg-slate-900 py-32 md:py-48 px-4 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-30">
-             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover grayscale" alt="Office Background"/>
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover grayscale" alt="Office Background" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-        
+
         <div className="relative z-10 max-w-4xl mx-auto animate-fade-up">
           <h1 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tighter">
             고객의 성공이 곧<br />
             <span className="text-amber-500 uppercase">우리의 자부심입니다</span>
           </h1>
           <p className="text-slate-300 text-lg md:text-xl leading-relaxed font-light max-w-2xl mx-auto tracking-wide">
-            온비즈는 급변하는 비즈니스 환경 속에서<br/>
+            온비즈는 급변하는 비즈니스 환경 속에서<br />
             기업이 나아가야 할 올바른 방향을 제시하는 <span className="text-white font-medium underline decoration-amber-500/50 underline-offset-8">나침반</span>이 되겠습니다.
           </p>
         </div>
@@ -34,10 +34,10 @@ export const About: React.FC = () => {
             <h3 className="text-3xl md:text-4xl font-black text-slate-950 mb-6 tracking-tighter">(주)온비즈</h3>
             <div className="w-12 h-1.5 bg-amber-500 rounded-full mx-auto"></div>
           </div>
-          
+
           <div className="max-w-3xl mx-auto">
             <p className="text-slate-500 text-lg leading-relaxed font-light mb-8 text-center">
-              "온비즈는 단순한 지식 전달을 넘어, 기업의 상황에 맞는 최적의 실행 방안을 <br className="hidden lg:block"/>함께 고민하고 만들어가는 진정한 비즈니스 파트너가 되겠습니다."
+              "온비즈는 단순한 지식 전달을 넘어, 기업의 상황에 맞는 최적의 실행 방안을 <br className="hidden lg:block" />함께 고민하고 만들어가는 진정한 비즈니스 파트너가 되겠습니다."
             </p>
             <p className="font-bold text-slate-950 text-xl text-center">온비즈 임직원 일동</p>
           </div>
@@ -51,9 +51,9 @@ export const About: React.FC = () => {
             <div className="col-span-5">
               <div className="relative overflow-hidden rounded-3xl aspect-[3/4] shadow-2xl">
                 {teamMembers[0].image ? (
-                  <img 
-                    src={teamMembers[0].image} 
-                    alt={teamMembers[0].name} 
+                  <img
+                    src={teamMembers[0].image}
+                    alt={teamMembers[0].name}
                     className="w-full h-full object-cover grayscale"
                   />
                 ) : (
@@ -64,7 +64,7 @@ export const About: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
               </div>
             </div>
-            
+
             <div className="col-span-7">
               <div className="mb-6">
                 <span className="text-amber-600 font-bold tracking-[0.3em] uppercase text-[10px]">CEO</span>
@@ -75,7 +75,7 @@ export const About: React.FC = () => {
               <p className="text-amber-600 font-bold text-lg uppercase tracking-widest mb-8">
                 {teamMembers[0].position}
               </p>
-              
+
               <div className="mb-8">
                 <div className="flex flex-wrap gap-2 mb-6">
                   {teamMembers[0].expertise.map((skill, idx) => (
@@ -85,11 +85,16 @@ export const About: React.FC = () => {
                   ))}
                 </div>
               </div>
-              
-              <p className="text-slate-600 text-lg leading-relaxed font-light mb-8">
-                {teamMembers[0].description}
-              </p>
-              
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-10">
+                {teamMembers[0].description.split('\n').map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <CheckCircle2 size={18} className="text-amber-500 shrink-0" strokeWidth={2.5} />
+                    <span className="text-slate-700 font-bold text-sm md:text-base">{item}</span>
+                  </div>
+                ))}
+              </div>
+
               <div className="w-16 h-1 bg-amber-500"></div>
             </div>
           </div>
@@ -109,14 +114,14 @@ export const About: React.FC = () => {
               <div key={member.id} className="group relative">
                 <div className="relative overflow-hidden rounded-2xl aspect-[3/4] mb-6 shadow-lg bg-slate-100">
                   {member.image ? (
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
+                    <img
+                      src={member.image}
+                      alt={member.name}
                       className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-slate-200">
-                        <User size={64} className="text-slate-300" />
+                      <User size={64} className="text-slate-300" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -125,11 +130,11 @@ export const About: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="text-center">
                   <h3 className="text-lg font-bold text-slate-900 mb-1 tracking-tight">{member.name}</h3>
                   <p className="text-amber-600 font-bold text-[10px] uppercase tracking-widest mb-3">{member.position}</p>
-                  
+
                   <div className="flex flex-wrap gap-1.5 justify-center">
                     {member.expertise.slice(0, 2).map((skill, idx) => (
                       <span key={idx} className="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] rounded font-bold border border-slate-100">

@@ -9,7 +9,7 @@ export const teamMembers: TeamMember[] = [
     role: 'CEO',
     image: '/images/team/박희락.jpg',
     expertise: ['기술신용평가', '경영전략', '자금조달'],
-    description: '하나은행 출신으로 금융권에서 다년간의 경험을 쌓았습니다. 기술신용평가사 자격을 보유하고 있으며, ISO 선임 심사원으로 품질경영시스템 인증 업무를 수행했습니다. 월드비지니스싱크탱크 초대회장을 역임하며 글로벌 비즈니스 네트워크를 구축했고, 중소기업의 기술 가치 평가와 자금 조달, 경영 전략 수립에 전문성을 발휘합니다. 기업 성장의 전략적 기틀을 마련하고 지속 가능한 성장을 위한 맞춤형 솔루션을 제공합니다.'
+    description: '기술신용평가사\nISO 선임 심사원\n월드비지니스싱크탱크 초대회장\n한국식품산업클러스터진흥원 자문위원\n소비자진흥원 이사\n소상공인연구원 자문위원\n고양축구협회 부회장\n세계한인무역협회 회원\n하나은행 출신'
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const teamMembers: TeamMember[] = [
     position: '이사',
     role: 'Director',
     image: '/images/team/김윤식.jpg',
-    expertise: ['경영 진단', '성장 로드맵'],
+    expertise: ['정부지원사업', '사업계획서', '법무서류'],
     description: '• 2012년 군무원 임관\n• 온비즈 창업멤버\n• 정부지원바우처'
   },
   {
@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     position: '이사',
     role: 'Director',
     image: '/images/team/배준식.png',
-    expertise: ['재무 전략', '기업 투자'],
+    expertise: ['영상촬영', '홍보영상', '비영리법인'],
     description: '• 촬영감독\n• 뉴웨이프로덕션 대표\n• 유튜브 다수'
   },
   {
@@ -35,7 +35,7 @@ export const teamMembers: TeamMember[] = [
     position: '변리사',
     role: 'Patent Attorney',
     image: '/images/team/이준석.jpg',
-    expertise: ['특허 출원', 'IP 포트폴리오'],
+    expertise: ['특허출원', '지식재산권'],
     description: '• 경기과학고 졸업\n• 카이스트 졸업\n• 서울대법과대학원 졸업\n• 국가지식재산연수원(직무발명제도)겸임교수\n• 서울대학교 창업지원단 멘토'
   },
   {
@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     position: '대외전략팀장',
     role: 'External Strategy Leader',
     image: '/images/team/염정원.jpg',
-    expertise: ['M&A', '투자 유치', '대외 협력'],
+    expertise: ['마케팅', 'IT개발', '정부사업'],
     description: '• 주식회사 98점7도 대표이사\n• 원케이션 대표\n• 오르비오 공동 대표\n• 테크사피엔스 총괄기술책임자\n• 국민체육진흥공단 전문 멘토\n• 고려대학교 창업지원단 전문 멘토'
   },
   {
@@ -80,7 +80,7 @@ export const teamMembers: TeamMember[] = [
     position: '세무사',
     role: 'Tax Accountant',
     image: '/images/team/전보윤.jpg',
-    expertise: ['세무 기장', '세무 조정'],
+    expertise: ['세무조정', '경정청구'],
     description: '• 세무법인 택스홈앤아웃 본점\n• 병의원 전문\n• 세무법인 석성 본점_법인 및 다양한 업종 법인세 및 소득세 신고\n• 세무법인 다솔 강남중앙지점_상속, 양도, 증여, 세무조사\n• 신영증권 본점 패밀리오피스_컨설팅'
   },
   {
@@ -89,7 +89,7 @@ export const teamMembers: TeamMember[] = [
     position: '법무사',
     role: 'Judicial Scrivener',
     image: '/images/team/황윤상.png',
-    expertise: ['법인 등기', '부동산 등기'],
+    expertise: ['부동산', '법인', '법무'],
     description: '• 디딤법무사합동사무소 대표\n• 잇츠디딤부동산중개법인 대표\n• 서울회생법원 뉴스타트 상담위원\n• 서울동부지방법무사회 창업경영지원단원\n• 서울시 마을법무사'
   },
   {
@@ -98,7 +98,7 @@ export const teamMembers: TeamMember[] = [
     position: 'VC선임심사역',
     role: 'Senior VC Analyst',
     image: '/images/team/박은선.png',
-    expertise: ['스타트업 투자', '기업 가치 평가'],
+    expertise: ['스타트업', '투자', '해외진출'],
     description: '• 투자 해외투자 모태펀드 IR자료제작'
   },
   {
@@ -107,7 +107,7 @@ export const teamMembers: TeamMember[] = [
     position: '세무사',
     role: 'Tax Accountant',
     image: '/images/team/조한준.png',
-    expertise: ['재무 설계', '가업 승계'],
+    expertise: ['재무설계', '가업승계'],
     description: '• 택스 세무회계사무소 대표 세무사\n• 한국경제 The Pen 필진'
   },
   {
@@ -116,7 +116,7 @@ export const teamMembers: TeamMember[] = [
     position: '행정사',
     role: 'Administrative Agent',
     image: '/images/team/최우인.png',
-    expertise: ['행정 심판', '토지 보상'],
+    expertise: ['인허가', '행정심판'],
     description: '• 행정합동사무소서로 대표행정사'
   },
   {
@@ -125,7 +125,7 @@ export const teamMembers: TeamMember[] = [
     position: 'DIRECTOR',
     role: 'Director',
     image: '/images/team/권민아.png',
-    expertise: ['프로젝트 관리', '조직 고도화'],
+    expertise: ['프로젝트', '해외바이어매칭', '국내소싱'],
     description: '• 쇼호스트 수출상품선정위원'
   }
 ];
