@@ -75,15 +75,6 @@ export const teamMembers: TeamMember[] = [
     description: '• 관세 통관 포딩\n• 해외진출사업 수출박람회'
   },
   {
-    id: 9,
-    name: '전보윤',
-    position: '세무사',
-    role: 'Tax Accountant',
-    image: '/images/team/전보윤.jpg',
-    expertise: ['세무조정', '경정청구'],
-    description: '• 세무법인 택스홈앤아웃 본점\n• 병의원 전문\n• 세무법인 석성 본점_법인 및 다양한 업종 법인세 및 소득세 신고\n• 세무법인 다솔 강남중앙지점_상속, 양도, 증여, 세무조사\n• 신영증권 본점 패밀리오피스_컨설팅'
-  },
-  {
     id: 10,
     name: '황윤상',
     position: '법무사',
